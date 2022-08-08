@@ -2,6 +2,7 @@ import express, { Express, Response, Request } from 'express';
 import dotenv from 'dotenv';
 import customErrorHandler from './src/middlewares/error-handler';
 import notFoundMiddleware from './src/middlewares/not-found';
+require('express-async-errors');
 
 import linkRouter from './src/routes/link.route'
 import { createClient } from 'redis';

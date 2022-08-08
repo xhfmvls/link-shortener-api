@@ -5,7 +5,7 @@ import { JsonResponse } from '../types/types';
 
 const customErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
   if(err instanceof CustomError) {
-    console.warn(`[-] ${err.message}`); 
+    console.error(`[-] ${err.message}`); 
     let response: JsonResponse = {
       success: false,
       message: err.message,
@@ -20,7 +20,7 @@ const customErrorHandler = (err: Error, req: Request, res: Response, next: NextF
   }; 
   return res
     .status(500)
-    .json(response);
+    .json(jsonResponse);
 }
 
 export default customErrorHandler; 
