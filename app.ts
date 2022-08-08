@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/', linkRouter);
 
-app.use(notFoundMiddleware)
+app.use(notFoundMiddleware);
 app.use(customErrorHandler); 
 
 app.listen(port, (): void => {

@@ -1,18 +1,9 @@
-import express, { Response, Request, Router } from 'express';
-import {JsonResponse} from '../types/types'
-import {StatusCodes} from 'http-status-codes'; 
+import { Router } from 'express';
+import getIndex from '../controllers/index.controller';
 
 const router = Router();
 
-router.route('/').get((req: Request, res: Response): Response => {
-  let response: JsonResponse = {
-    success: true,
-    message: 'Request Valid',
-  }
-  return res
-    .status(StatusCodes.OK)
-    .json(response); 
-})
+router.route('/').get(getIndex);
 
 // router.route('/:key').get(async(req: Request, res: Response) => {
 //   return res.redirect('https://wikipedia.com');
