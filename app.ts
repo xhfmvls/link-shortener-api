@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import customErrorHandler from './src/middlewares/error-handler';
 import notFoundMiddleware from './src/middlewares/not-found';
 
+import linkRouter from './src/routes/link.route'
+
 dotenv.config(); 
 
 const app: Express = express(); 
@@ -10,11 +12,7 @@ const port: any = process.env.PORT;
 
 app.use(express.json()); 
 
-app.get('/', (req: Request, res: Response): Response => {
-  return res.json({
-    success: true, 
-  }); 
-});
+app.use('/', linkRouter);
 
 app.use(notFoundMiddleware)
 app.use(customErrorHandler); 
