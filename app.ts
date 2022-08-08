@@ -8,12 +8,12 @@ const port: any = process.env.PORT;
 
 app.use(express.json()); 
 
-app.get(port, (req: Request, res: Response): Response => {
+app.get('/', (req: Request, res: Response): Response => {
   return res.json({
     success: true, 
   }); 
 });
 
-app.listen((): void => {
+app.listen(port, (): void => {
   console.log(`[*] Server running on port ${port}`); 
 }); 
